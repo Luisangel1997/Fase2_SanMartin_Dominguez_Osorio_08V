@@ -1,0 +1,80 @@
+
+{% extends 'vistas/main.html' %}
+{% load static %}
+
+    {% block title %}{% endblock %}
+    {% block content %}
+    <h1>Bienvenidos a Deportes Luchin</h1>
+    	<form action="register.html">
+    		<div class="form-group" style="background-color: #93cdee;">
+    			<label for="Nombre" id="lNombre">Ingresa tu Nombre</label>
+    			<input type="text" class="form-control" id="Nombre" placeholder="Pedro Andres">
+    		</div>
+    		<div class="form-group" >
+    			<label for="Apellido" id="lApellido">Ingresa tu Apellido</label>
+    			<input type="text" class="form-control" id="Apellido" placeholder="Pardo Espinoza">
+    		</div>
+    		<div class="form-group">
+    			<label for="Edad" id="lEdad">Ingresa tu Edad</label>
+    			<input type="text" class="form-control" id="Edad" placeholder="18">    			
+    		<div class="form-group">
+    			<label id="lEmail">Ingresa tu Email</label>
+    			<input type="text" class="form-control" id="Email" placeholder="PedroPardo@live.cl">
+    			   <small  class="form-text text-muted">Recuerda no compartir tu correo con otras personas</small>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" id="btnre" onclick="validar()">¡Registrar!</button>
+    		</div>	
+    		<script type="text/javascript">function validar() {
+    var nombre = document.getElementById("Nombre").value;
+    var email = document.getElementById("Email").value;
+    var edad = document.getElementById("Edad").value;
+    var apellido = document.getElementById("Apellido").value;
+    
+    console.log(nombre);
+     console.log(edad);
+      console.log(email);
+
+    if (nombre.length <= 0 || nombre.length > 15) {
+        document.getElementById('lNombre').innerHTML = "Debe ingresar un nombre";
+        document.getElementById('lNombre').style.color = 'red';
+        return
+    } else {
+        document.getElementById('lNombre').innerHTML = "ok!";
+        document.getElementById('lNombre').style.color = 'green';
+    }
+    if (apellido.length <= 0 || apellido.length > 15) {
+        document.getElementById('lApellido').innerHTML = "Debe ingresar su apellido";
+        document.getElementById('lApellido').style.color = 'red';
+        return
+    } else {
+        document.getElementById('lApellido').innerHTML = "ok!";
+        document.getElementById('lApellido').style.color = 'green';
+    }
+    if (email.length <= 0 || email.length > 30) {
+        document.getElementById('lEmail').innerHTML = "error en el campo de correo";
+        document.getElementById('lEmail').style.color = 'red';
+        return
+    } else {
+        document.getElementById('lEmail').innerHTML = "ok!";
+        document.getElementById('lEmail').style.color = 'green';
+    }
+    if (!parseInt(edad)) {
+        document.getElementById('lEdad').innerHTML = "El campo de edad debe ser un numero";
+        document.getElementById('lEdad').style.color = 'red';
+        return
+    }  
+    if (edad <= 17 || edad > 99) {
+        document.getElementById('lEdad').innerHTML = "edad no valida, debes tener 18 años";
+        document.getElementById('lEdad').style.color = 'red';
+        return
+    } else {
+        document.getElementById('lEdad').innerHTML = "ok!";
+        document.getElementById('lEdad').style.color = 'green';
+    }
+    
+    document.getElementById('main').innerHTML = "FELICIDADES " + nombre + " "+apellido+" TE HAS REGISTRADO CON EXITO!!";
+};</script>    		<script type="text/javascript" href="% static '/js/register.js' %}"></script>
+    {% endblock %}   
+   
+

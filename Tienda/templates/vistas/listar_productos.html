@@ -1,0 +1,33 @@
+{% extends 'vistas/listar_usuarios' %}
+
+{% block contenido %}
+<h2> Listado de productos </h2>
+
+<table>
+	
+	<tr> 
+      <th> Id</th>
+      <th> Nombre Producto</th>
+      <th> Precio</th>
+      <th> Opciones</th>
+	</tr>
+
+	{% for p in nombreProductos %}
+     
+     <tr>
+     	
+     	<td>{{ p.id }}</td>
+     	<td>{{ p.nombreProductos }}</td>
+     	<td>{{ p.precio }}</td>
+     	<td>
+     		<a href="">Eliminar</a>
+     	</td>
+
+
+     </tr>
+
+	{% endfor %}
+
+</table>
+
+{%endblock contenido %}
